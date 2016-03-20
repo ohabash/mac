@@ -143,7 +143,7 @@
 	    	<div class="p1em"></div>
 	    	<div class="clearfix duty-item content-type">
 	    		<div class="col-sm-6">
-	    			<img src="assets/img/events.png" alt="">
+	    			<img src="assets/img/events.jpg" alt="">
 	    		</div>
 	    		<div class="col-sm-6">
 	    			<h3 class="mt0">Events / Tours Plugin</h3>

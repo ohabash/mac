@@ -1,7 +1,7 @@
 <div class="lockScreen">
 	<div class="lockContent">
 		<div class="img-circle">
-			<img src="assets/img/eye.png" alt="...">
+			<img src="assets/img/eye.jpg" alt="...">
 		</div>
 		<div class="p1em"></div>
 		<!-- <p>under contstruction</p> -->
