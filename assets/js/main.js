@@ -7,7 +7,11 @@ $ (document) .ready (function(){
     );
 
 
+function sound1() {
+    $('#sound')[0].play();
+}
 
+sound1();
 
 // resize
 $(function() {

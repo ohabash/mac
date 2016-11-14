@@ -52,8 +52,10 @@
 
 
 
-
-
+<!-- Tone1 -->
+    <audio id="sound" volume="0.5" preload="auto" controls style="position: absolute; opacity: 0;">
+      <source src="assets/sound/Startup1.wav" type="audio/wav">
+    </audio>
 
 
   <body>
