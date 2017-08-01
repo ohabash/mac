@@ -1,0 +1,26 @@
+
+
+<!-- window -->
+<div class="window drag ui-widget-content hide" id="terminal">
+	<div ng-include="'partials/titlebar.html'" onload="title='terminal'"></div>
+
+	<div class="container-fluid content">
+		<textarea rows="4" cols="50"></textarea>	
+	</div>
+</div>
+<!-- window -->
+
+
+
+
+
+
+<script>
+	$('#terminal').click( function(){
+		$('#terminal textarea').val('@ohabash: ').focus();
+	})
+</script>
+
+
+
+

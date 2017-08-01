@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MAC">
+<head>
+	<base href="/"/>
+	<!-- <base href="/index.html"> -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="Yosemite Desktop with HTML/CSS/jQueryUI by Omar Habash IOS OSX Mockup mac developer html css jquery javascript">
+    <meta name="author" content="Omar Habash">
+    <link rel="image_src" href="" / >
+    <meta property="og:title" content="Yosemite Desktop with HTML/CSS/jQueryUI">
+    <meta property="og:image" content="http://omarhabash.com/mac/assets/img/yosemite-desktop.png">
+    <meta property="og:description" content="Awesome translation of the Apple's Yosimite desktop in to web languages">
+    <meta name="description" content="Awesome translation of the Apple's Yosimite desktop in to web languages">
+    <link rel="shortcut icon" href="http://www.apple.com/apple-touch-icon.png">
+
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,100,300,700,600' rel='stylesheet' type='text/css'>
+	<!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+	<link href="bower_components/slick-carousel/slick/slick.css" rel="stylesheet">
+	<link href="assets/dist/css/style.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="assets/js/jquery.cookie.js"></script>
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+
+
+
+
+
+<body ng-controller="menuCtrl" class="fullscren">
+	<div class="bg"></div>
+	<div class="bg blur animated fadeIn hide"></div>
+	<div id="notices"></div>
+
+	<div ng-controller="SlickController">
+		<!-- Tone1 -->
+		<audio id="sound" volume="0.5" preload="auto" controls style="position: absolute; opacity: 0;">
+		  <source src="assets/sound/Startup1.wav" type="audio/wav">
+		</audio>
+		<audio id="slack" volume="0.5" preload="auto" controls style="position: absolute; opacity: 0;">
+		  <source src="assets/sound/slack.mp3" type="audio/wav">
+		</audio>
+		<audio id="ding" volume="0.5" preload="auto" controls style="position: absolute; opacity: 0;">
+		  <source src="assets/sound/ding.m4a" type="audio/wav">
+		</audio>
+		<ng-view class="view-animate"></ng-view>
+	</div>
+
+
+
+	
+
+    <!-- libraries -->
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script src="bower_components/moment/moment.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
+	<script type="text/javascript">
+	    var config = {
+	        apiKey: "AIzaSyBdO05jrjkXy_QDIw9uHf2yiu1K9PAWBl4",
+	        authDomain: "demoapp-c83c3.firebaseapp.com",
+	        databaseURL: "https://demoapp-c83c3.firebaseio.com",
+	        projectId: "demoapp-c83c3",
+	        storageBucket: "demoapp-c83c3.appspot.com",
+	        messagingSenderId: "428752706746"
+	    };
+	    firebase.initializeApp(config);
+    </script>
+    <!-- angularjs -->
+    <script src="assets/js/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.js"></script>
+    <script src="bower_components/angular-slick-carousel/dist/angular-slick.min.js"></script>
+    <script src="bower_components/angular-moment-filter/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-animate.js"></script>
+    <script src="assets/js/ng-app.js"></script>
+    <script src="assets/js/ng-controller.js"></script>
+    <script src="assets/js/ng-talk.js"></script>
+    <script src="assets/js/ng_cam.js"></script>
+    <script src="assets/js/ng_safari.js"></script>
+    <script src="assets/js/ng_carousel.js"></script>
+    <script src="assets/js/alerts.js"></script>
+    <script src="assets/js/context.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script type="text/javascript" charset="utf-8" src="bower_components/angular-contentful/dist/angular-contentful.min.js"></script>
+
+    <script src="assets/js/modernizr.custom.js"></script>
+    <script src="bower_components/Vague.js/Vague.js"></script>
+
+
+
+    <!-- localdev -->
+    <!-- <script src='http://localhost:3000/socket.io/socket.io.js'></script> -->
+	<!-- <script src='http://localhost:3001/browser-sync-client.min.js'></script> -->
+
+
+  </body>
+</html>

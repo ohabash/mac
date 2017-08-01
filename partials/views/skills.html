@@ -1,0 +1,70 @@
+<div id="tat"></div>
+
+
+<div id="skills" class="fadeIn dr4 animated" contentful-entries="'content_type=skills'">
+	<div class="closeSkills">
+		<i class="fa fa-times-circle"></i>
+	</div>
+	<div class="search-skills"><input ng-model="search" ng-change="updateView()" id="searchSkills" placeholder="search"><i class="fa hide fa-times-circle clear-search" aria-hidden="true"></i></div>
+	<div class="p1em"></div>
+	<!-- <div class="skill-icons columns1 is-multiline pt0"> -->
+	<div class="skill-icons">
+	<slick class="slides columns1 is-multiline pt0" data="$contentfulEntries.items" dots="true" ng-if="viewLoaded" settings="slickPanels">
+		<!-- item -->
+		<div class="column1 {{item.fields.class}} is-2 skill-item vc pr {{item.fields.name}}" name='{{item.fields.name}}' ng-repeat="item in $contentfulEntries.items | filter:search:strict">
+			<a href="{{item.fields.url}}" target="_blank" class="skill-wrap centerer db">
+				<img src="{{ item.fields.icon.fields.file.url }}" alt="">
+				<p class="text-center">{{item.fields.name}}</p>
+			</a>
+		</div>
+	</slick>
+	</div>
+	<!-- </div> -->
+</div>
+
+
+
+<script type="text/javascript">
+// skills
+$('.skillsStart').click(function () {
+    $('#skills').css('display','block').removeClass('zoomOut').removeClass('hide');
+    $('.bg.blur').removeClass('hide');
+});
+
+
+//close windows
+$( ".closeSkills" ).click(function() {
+    $('#skills').addClass('zoomOut animated').removeClass('fadeIn');
+    setTimeout(function() {
+        $('#skills').addClass('hide fadeIn');
+    }, 900);
+    $('.bg.blur').addClass('fadeOut').removeClass('fadeIn').delay(550).queue(function(){
+    	$(this).addClass('hide fadeIn').removeClass('fadeOut').dequeue();
+    });
+});
+
+// search field
+$('#searchSkills').focus( function(){
+  $('.search-skills').addClass('active');
+  $('.clear-search').click( function(){
+    $('#searchSkills').val('');
+    $rootScope.updateView();
+  });
+});
+
+$('#searchSkills').focusout( function(){
+  if($(this).val().length<1) {
+    $('.search-skills').removeClass('active');
+  }
+});
+	
+</script>
+
+
+
+
+
+
+
+
+

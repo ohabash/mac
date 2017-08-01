@@ -1,0 +1,51 @@
+
+
+<!-- window -->
+<div class="window drag ui-widget-content hide" id="talk" style="max-width: 100%" ng-controller="talk">
+	<div ng-include="'partials/titlebar.html'" onload="title='iMessage: Omar'"></div>
+	<div class="container-fluid content">
+	<!--==== messanger ====-->
+		<div class="wrapper">
+		  <div class="build-container">
+		    <a href="#" class="button" id="build">Build</a>
+		    <br><br>
+		  </div>
+		  
+		  <div class="phone-containter">
+		    <div id="phone" class="phone">
+			    <div class="message clearfix" ng-class="(message.user=='ohabash') ? 'right' : 'left'" ng-repeat="message in messages">
+			    	<div class="stuff">
+			    		<p class="muted"><small><strong>{{message.user}}</strong> | {{message.time | moment: 'calendar'}}</small></p>
+			    		<div class="message-text">{{message.text}}</div>
+			    	</div>
+			    </div>
+		    </div>
+		    
+		    <div class="send-container">
+		      <form id="send" ng-submit="addMessage()">
+		      	<input type="text" id="msgInput" class="send-input" placeholder="Message" ng-model="newMessageText" />
+		      	<input type="submit" class="send-btn" value="Send">
+		      </form>
+		    </div>
+		    
+		  </div>
+		</div>
+	<!--====// messanger ====-->
+	</div>
+</div>
+<!-- window -->
+
+
+
+
+
+
+<script>
+	$('#terminal').click( function(){
+		$('#terminal textarea').val('@ohabash: ').focus();
+	})
+</script>
+
+
+
+

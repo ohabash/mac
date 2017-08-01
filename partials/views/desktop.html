@@ -1,0 +1,207 @@
+<div ng-include="'partials/header.html'" class=""></div>
+
+<!-- windows -->
+<div ng-include="'partials/windows/number-1.html'" class="dragArea1"></div>
+<div ng-include="'partials/windows/finder.html'" class="dragArea1"></div>
+<div ng-include="'partials/windows/tabs.html'" class="dragArea1"></div>
+<div ng-include="'partials/windows/terminal.html'" class="dragArea1"></div>
+<div ng-include="'partials/windows/safari.html'" class="dragArea1"></div>
+<div ng-include="'partials/windows/cam.html'" class="dragArea1"></div>
+<div ng-include="'partials/windows/talk.html'" class="dragArea1"></div>
+
+<div ng-include="'partials/views/skills.html'" class=""></div>
+
+
+
+
+
+
+<!-- desktop icons -->
+<div class="" id="deskcons">
+	
+	<!-- item -->
+	<div class="deskcon">
+		<img src="https://blog.macsales.com/wp-content/uploads/2017/03/Folder-icon-284x284.png">
+		<p>Folder Name goes here</p>
+	</div>
+	<!-- item -->
+	<div class="deskcon">
+		<img src="https://blog.macsales.com/wp-content/uploads/2017/03/Folder-icon-284x284.png">
+		<p>Folder Name goes here</p>
+	</div>
+	<!-- item -->
+	<div class="deskcon">
+		<img src="https://blog.macsales.com/wp-content/uploads/2017/03/Folder-icon-284x284.png">
+		<p>Folder Name goes here</p>
+	</div>
+	<!-- item -->
+	<div class="deskcon">
+		<img src="https://blog.macsales.com/wp-content/uploads/2017/03/Folder-icon-284x284.png">
+		<p>Folder Name goes here</p>
+	</div>
+
+	<!-- item -->
+	<div class="deskcon" ng-repeat="model in desktop_arr">
+		<img src="{{model}}">
+		<p>Folder Name goes here</p>
+	</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+setTimeout(function(){
+	$(".drag").draggable({ containment: 'drag', scroll: true, handle: '.titlebar' });
+	$(".deskcon").draggable({ containment: 'drag' });
+	$(".selectable").selectable();
+
+	$(".window").draggable(
+	   { containment: "body" }
+	);
+	function sound1() {
+	    $('#sound')[0].play();
+	}
+
+	// double click
+	$('.deskcon').dblclick( function(){
+		addAlert("exclamation-triangle", "Warning", "testing .dblclick()");
+	});
+
+	sound1();
+
+	// resize
+	$(function() {
+	    $( ".window.r" ).resizable();
+	});
+
+	//window buttons hover state
+	// $('.window-rounds').hover(function () {
+	//     $('.window-rounds').addClass('hovered');
+	// });
+
+	$('.buttons').hover(function () {
+	    $(this).find('.window-rounds').addClass('hovered');
+	  }, function() {
+	    $(this).find('.window-rounds').removeClass('hovered');
+	  }
+	);
+
+
+	//get height of header and add that margin at the bottom of window
+	$('.titlebar').mousedown(function () {
+	    var titleHeight = $(this).height();
+	    var windowHeight = $(this).parent('.window').height();
+	    var newContentHeight = (windowHeight - titleHeight);
+	    // $(this).siblings('.content').css('height',newContentHeight);
+	    $(this).siblings('.content').find('ul').css('height',newContentHeight - 5);
+	    // $(this).siblings('.content').css('padding-bottom', $vars);
+	});
+
+	$('.content').hover(function () {
+	    var titleHeight = $(this).siblings('.titlebar').height();
+	    var windowHeight = $(this).parent('.window').height();
+	    var newContentHeight = (windowHeight - titleHeight);
+	    $(this).css('height',newContentHeight);
+	    $(this).find('ul').css('height',newContentHeight - 5);
+	});
+
+
+		//day of the week
+		var d = new Date();
+		var weekday = new Array(7);
+		weekday[0] = "Sun";
+		weekday[1] = "Mon";
+		weekday[2] = "Tues";
+		weekday[3] = "Wed";
+		weekday[4] = "Thurs";
+		weekday[5] = "Fri";
+		weekday[6] = "Sat";
+
+		var n = weekday[d.getDay()];
+	    document.getElementById("demo").innerHTML = n;
+
+
+	    setInterval('updateClock()', 1000);
+
+
+	// bring active window to top
+	$(".window").mousedown(function(){
+	    $(this).addClass('active').siblings().removeClass('active');
+	});
+
+
+	//close windows
+	$( ".close1" ).click(function() {
+	    $(this).parents('.window').addClass('zoomOut animated').removeClass('active');
+	    $(this).parents('#skills').addClass('zoomOut animated');
+	}); 
+
+	$('[data-window]').click(function(){
+		var t = $(this).data('window');
+		console.log('open '+t);
+		// console.log(t+"should open now.");
+		$('.window').removeClass('active');
+		$('#'+t).addClass('active opened').removeClass('hide zoomOut')
+	});
+
+	//jQueryUI Tabs
+	$(function() {
+	    $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+	    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+	});
+
+}, 100);
+function updateClock () {
+    var currentTime = new Date ( );
+    var currentHours = currentTime.getHours ( );
+    var currentMinutes = currentTime.getMinutes ( );
+    var currentSeconds = currentTime.getSeconds ( );
+    currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
+    currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
+    var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
+    currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
+    currentHours = ( currentHours == 0 ) ? 12 : currentHours;
+    var currentTimeString = currentHours + ":" + currentMinutes + " " + timeOfDay;
+    $(".clock").html(currentTimeString);
+ }
+
+
+
+
+ // right click 
+ $(function() {
+    $.contextMenu({
+        selector: '.deskcon', 
+        callback: function(key, options) {
+            var m = "clicked: " + key;
+            window.console && console.log(m) || alert(m); 
+        },
+        items: {
+            "edit": {name: "Edit", icon: "edit"},
+            "cut": {name: "Cut", icon: "cut"},
+           copy: {name: "Copy", icon: "copy"},
+            "paste": {name: "Paste", icon: "paste"},
+            "delete": {name: "Delete", icon: "delete"},
+            "sep1": "---------",
+            "quit": {name: "Quit", icon: function(){
+                return 'context-menu-icon context-menu-icon-quit';
+            }}
+        }
+    });
+
+    // $('.context-menu-one').on('click', function(e){
+    //     console.log('clicked', this);
+    // })    
+});
+
+</script>

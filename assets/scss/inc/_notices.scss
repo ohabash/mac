@@ -1,0 +1,65 @@
+#notices{
+	position: absolute;
+	z-index: 99999;
+	top: 25px;
+	right: 31px;
+	width: 28em;
+	font-size: 0.85em;
+	.n-item{
+		margin: 1em !important;
+		// padding: 0.6em !important;
+		// background: #fff;
+		width: 100%;
+		@include grad(90deg, #fff, darken(#fff, 5%));
+		opacity: 0.9;
+		border-radius: 0.45em;
+		overflow: hidden;
+	    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.26);
+	    // min-width: 20em;
+		.column.icon {
+			position: relative;
+			i{
+				padding-top: 40%;
+				&.fa-exclamation-triangle{
+					color: #FFC107;
+					font-size: 1.2em;
+					text-shadow: 1px 0px 0px rgba(#000, 0.3);
+				}
+				&.fa-magic{
+					color: $blue;
+				}
+
+			}
+		}
+		.column.copy{
+			border-right: 1px solid rgba(#000, 0.15);
+			p.t{
+				text-transform: capitalize;
+				font-weight: 600;
+			}
+			p.m{
+			}
+		}
+		.column.actions {
+			text-transform: capitalize;
+			text-align: center;
+			padding: 0;
+			.action{
+				height: 50%;
+				padding: 0.6em 1em;
+				font-weight: 600;
+				overflow: hidden;
+				&:hover{
+					background: darken(#fff, 6%);
+				}
+				&:active{
+				    background: #2178f3;
+    				color: #fff;
+				}
+				&:first-child{
+					border-bottom: 1px solid rgba(#000, 0.15);
+				}
+			}
+		}
+	}
+}

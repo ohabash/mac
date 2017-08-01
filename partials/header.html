@@ -1,0 +1,111 @@
+<div ng-include="'partials/nav.html'"></div>
+
+<div class="reveal">
+      <input ng-model="range" type="range" min="30" max="100" value="42" id="fader" step="1" orient="vertical">
+  </div>
+
+<!-- yosimite like doc -->
+<div class="osx-dock animated bounceInUp">
+  <div class="row dock-styles">
+      <ul class="dock-right">
+          <!-- range -->
+          <li class="resize">
+            <input ng-model="range" type="range" min="30" max="100" value="42" id="fader" step="1" orient="vertical">
+            <!-- <output for="fader" id="range_output">{{range || 42}}</output> -->
+          </li>
+          <li class="dock-icon" id="folder"><a href="#"><img style="width: {{range || 42}}px;" src="assets/img/folder.png" alt=""></a></li>
+          
+          <li class="dock-icon"><a class="skillsStart" href="javascript:void(0)">
+            <img style="width: {{range || 42}}px;" src="assets/img/trash.png" alt=""></a>
+          </li>
+
+      </ul>
+      <ul class="dock-left">
+          
+          <li class="dock-icon" data-tooltip="Finder" data-placement="top">
+            <a class="finderStart" data-window="finder" href="javascript:void(0)">
+              <img style="width: {{range || 42}}px;" src="assets/img/Finder.png" alt="">
+            </a>
+          </li>
+
+          <li class="dock-icon" data-tooltip="safari" data-placement="top">
+            <a class="finderStart" ng-click="goThere();" data-window="safari" href="javascript:void(0)">
+              <img style="width: {{range || 42}}px;" src="assets/img/safariLogo.png" alt="">
+            </a>
+          </li>
+          
+          <li class="dock-icon" data-tooltip="Portfolio" data-placement="top">
+            <a class="tabs1" data-window="tabs1" href="javascript:void(0)">
+              <img style="width: {{range || 42}}px;" src="https://s-media-cache-ak0.pinimg.com/originals/06/8e/1a/068e1a68d3552c7eba41d1c5a52089ca.jpg" style="padding: 0px" alt="">
+            </a>
+          </li>
+          
+          <li class="dock-icon" data-tooltip="Messages" data-placement="top">
+            <a data-window="talk" href="javascript:void(0)">
+              <img style="width: {{range || 42}}px;" src="http://v.fastcdn.co/u/5d0db800/15771266-0-messenger.png" alt="">
+            </a>
+          </li>
+          
+          <li class="dock-icon" data-tooltip="Camera" data-placement="top">
+            <a class="one1" ng-click="startCAM()" data-window="cam" href="javascript:void(0)">
+              <img style="width: {{range || 42}}px;" src="assets/img/photobooth.ico" alt="">
+            </a>
+          </li>
+          
+          <li class="dock-icon">
+            <a class="skillsStart" href="javascript:void(0)">
+              <img style="width: {{range || 42}}px;" src="http://fc07.deviantart.net/fs71/f/2014/327/4/7/alternative_app_store_yosemite_icon_by_djtech42-d87hc6l.png" alt="">
+            </a>
+          </li>
+          
+          <li class="dock-icon" data-tooltip="Skills | Tools" data-placement="top">
+            <a class="skillsStart" href="javascript:void(0)">
+              <img style="width: {{range || 42}}px;" src="assets/img/launch.png" alt="">
+            </a>
+          </li>
+
+          <li class="dock-icon" data-tooltip="terminal" data-placement="top">
+            <a class="finderStart" data-window="terminal" href="javascript:void(0)">
+              <img style="width: {{range || 42}}px;" src="assets/img/terminal.png" alt="">
+            </a>
+          </li>
+
+
+      </ul>
+  </div>
+</div>
+<!-- // yosimite like doc -->
+
+
+
+<script>
+function outputUpdate1(vol) {
+  // var range_output = $('#range_output');
+  // range_output.value = vol;
+  document.querySelector('#range_output').value = vol;
+}
+console.log("{{range || 42}}<<<<<<")
+// ranger
+// $('.reveal').css('display','none');
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
