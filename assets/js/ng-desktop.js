@@ -2,7 +2,7 @@
 
 
 
-app.controller('desktop', function($scope, $firebaseObject, $firebaseArray, $timeout, Auth, FB, $firebaseAuth, $rootScope, $location) {
+app.controller('desktop', function($scope, $http, $firebaseObject, $firebaseArray, $timeout, Auth, FB, $firebaseAuth, $rootScope, $location) {
 
 	// Auth.$onAuthStateChanged(function(u) {
 	// 	$rootScope.u = u;
@@ -22,9 +22,21 @@ app.controller('desktop', function($scope, $firebaseObject, $firebaseArray, $tim
  //        convo_id: 'convos_'+u.uid
  //      });
  //    };
+ $rootScope.slack = function (text) {
+    return $http.post("https://hooks.slack.com/services/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",
+    {
+      text: text,
+      'username': 'test'
+    })
+    .then(function (response) {
+      console.log(response)
+      return response;
+    });
+  };
 	$timeout(function() {
-		console.log($rootScope.u);
+		console.log("user: ",$rootScope.u);
 		addAlert("star", "Welcome, "+$rootScope.u.displayName, "Enjoy my translation of macOS into web languages. Remember this is not your desktop.");
+		$rootScope.slack("MAC: "+$rootScope.u.displayName+" ("+$rootScope.u.email+")");
 	}, 1000);
 
 	// var user = firebase.auth().currentUser;

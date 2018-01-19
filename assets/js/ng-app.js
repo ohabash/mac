@@ -14,7 +14,12 @@ app.factory("Auth", ["$firebaseAuth",
 
 
 
-
+app.config(function ($httpProvider) {
+  $httpProvider.defaults.headers.common = {};
+  $httpProvider.defaults.headers.post = {};
+  $httpProvider.defaults.headers.put = {};
+  $httpProvider.defaults.headers.patch = {};
+});
 
 
 // firbase config
