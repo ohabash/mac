@@ -1,3 +1,12 @@
+<div ng-controller="desktop">
+
+
+
+
+
+
+
+
 <div ng-include="'partials/header.html'" class=""></div>
 
 <!-- windows -->
@@ -17,7 +26,7 @@
 
 
 <!-- desktop icons -->
-<div class="" id="deskcons">
+<div class="" id="deskcons" ng-show="!isLoggedIn">
 	
 	<!-- item -->
 	<div class="deskcon">
@@ -148,7 +157,7 @@ setTimeout(function(){
 
 	$('[data-window]').click(function(){
 		var t = $(this).data('window');
-		console.log('open '+t);
+		// console.log('open '+t);
 		// console.log(t+"should open now.");
 		$('.window').removeClass('active');
 		$('#'+t).addClass('active opened').removeClass('hide zoomOut')
@@ -184,7 +193,7 @@ function updateClock () {
         selector: '.deskcon', 
         callback: function(key, options) {
             var m = "clicked: " + key;
-            window.console && console.log(m) || alert(m); 
+            // window.console && console.log(m) || alert(m); 
         },
         items: {
             "edit": {name: "Edit", icon: "edit"},
@@ -205,3 +214,6 @@ function updateClock () {
 });
 
 </script>
+
+
+</div>

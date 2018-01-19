@@ -2,64 +2,59 @@ var app = angular.module('MAC');
 
 
 // ListenContrller
-app.controller('talk', function ($scope, $timeout, $rootScope, $firebaseObject, $firebaseArray) {
+app.controller('talk', function ($scope, Auth, $timeout, $rootScope, $firebaseObject, $firebaseArray) {
 
     // got to bottom
     $scope.bottom = function() {
-        console.log('bottom');
+        // console.log('bottom');
         $("#phone").animate({ scrollTop: $('#phone').prop("scrollHeight")}, 500);
     }
 
-    // // default at bottom
-    // $timeout(function () {
-    //     $scope.bottom();
-    // }, 6000);
 
-    // get / set messages
-    var ref = firebase.database().ref().child("messages");
-    $scope.data = $firebaseObject(ref); // putting a console.log here won't work
-    $scope.messages = $firebaseArray(ref);
-    console.log("user: ",$scope.username)
-    
-    // timeformat (not used)
-    $scope.formatDate = function(date, fmt) {
-        function pad(value) {
-            return (value.toString().length < 2) ? '0' + value : value;
-        }
-        return fmt.replace(/%([a-zA-Z])/g, function (_, fmtCode) {
-            switch (fmtCode) {
-            case 'Y':
-                return date.getUTCFullYear();
-            case 'M':
-                return pad(date.getUTCMonth() + 1);
-            case 'd':
-                return pad(date.getUTCDate());
-            case 'H':
-                return pad(date.getUTCHours());
-            case 'm':
-                return pad(date.getUTCMinutes());
-            case 's':
-                return pad(date.getUTCSeconds());
-            default:
-                throw new Error('Unsupported format code: ' + fmtCode);
-            }
-        });
-    };
+    Auth.$onAuthStateChanged(function(u) {
+        
+        // messages
+        $rootScope.u = u;
+        var m = "convos-"+$rootScope.u.uid;
+        var ref = firebase.database().ref().child(m);
+        $scope.data = $firebaseObject(ref); // putting a console.log here won't work
+        $scope.messages = $firebaseArray(ref);
+
+        //user key table 
+
+    });
+
 
     // addmsg
     $scope.addMessage = function() {
         $scope.messages.$add({
-          text: $scope.newMessageText,
-          user: "ohabash",
-          time: new Date().valueOf()
+            // user: $rootScope.u.uid,{
+              text: $scope.newMessageText,
+              display: $rootScope.u.displayName,
+              email: $rootScope.u.email,
+              time: new Date().valueOf()
+            // }
         });
         $('#msgInput').val('');
         $scope.bottom();
+        $scope.autoreply();
+    };
+    
+
+    $scope.autoreply = function() {
+        $scope.messages.$add({
+            // user: $rootScope.u.uid,{
+              text: "Though your message is databased; I am no longer monitoring for communications on this channel. Please find me at www.OmarHabash.com",
+              display: "Omar Habash",
+              email: "ContactOmarNow@gmail.com",
+              time: new Date().valueOf()
+            // }
+        });
     };
 
     // bottom on dom change
     $scope.$watch(function () {
-       return document.body.innerHTML;
+       // return document.body.innerHTML;
     }, function(val) {
        $scope.bottom();
     });

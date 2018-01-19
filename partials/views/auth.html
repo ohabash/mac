@@ -1,0 +1,53 @@
+
+
+<div class="lockScreen">
+	<div class="lockContent">
+		<div class="img-circle">
+			<img src="assets/img/eye.jpg" alt="...">
+		</div>
+		<div class="user" >
+			
+
+			<!-- dev only -->
+			<div class="clearfix" ng-if="firebaseUser">
+				<h1 style="color:white;"><a ng-click='logout()'>LOGOUT</a></h1>
+			</div>
+			<!-- <h1 style="color:white;"><a href="/desktop">Desktop</a></h1> -->
+
+			<form id="login" class="active"  ng-submit="signIn()">
+				<input required id="email" type="text" ng-model="email" placeholder="Enter Your email"><br>
+				<input required id="password" type="password" ng-model="password" placeholder="Password"><br>
+				<a href="/access" class="hide hideit">ACCESS</a>
+				<div class="submit-it"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
+				<input required id="submit" type="submit" ng-model="submit" value="Login"><br>
+			</form>
+
+
+
+
+			<form id="register" ng-submit="createUser()">
+				<input required id="email" type="email" ng-model="email" placeholder="Email"><br>
+				<input required id="name" type="name" ng-model="name" placeholder="Full Name"><br>
+				<input required id="password" type="password" ng-model="password" placeholder="Password"><br>
+				<input required id="submit" type="submit" ng-model="submit" value="Register"><br>
+				<!-- <p ng-if="message">Message: <strong>{{ message }}</strong></p> -->
+				<!-- <p ng-if="error">Error: <strong>{{ error }}</strong></p> -->
+				<a href="/access" class="hide hideit">ACCESS</a>
+			</form>
+
+
+
+
+		</div>
+	</div>
+	<a class="firsttime" ng-click="toggleForms()">
+		<img src="assets/img/play.svg" alt="">
+		<p>register</p>
+	</a>
+	<!-- <a class="firsttime" href="/desktop">
+		<img src="assets/img/play.svg" alt="">
+		<p>Desktop</p>
+	</a> -->
+	<div class="BG"></div>
+</div>
+

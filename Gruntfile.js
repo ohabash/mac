@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
 
+  var modRewrite = require('connect-modrewrite');
+
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
@@ -42,7 +44,7 @@ module.exports = function(grunt) {
         bsFiles: {
             src : [
                 'assets/dist/css/*.css',
-                'assets/js/*.js',
+                'dist/*.js',
                 '*/*.html',
                 '*/*/*.html',
                 '*.html'
@@ -50,7 +52,13 @@ module.exports = function(grunt) {
         },
         options: {
             watchTask: true,
-            server: './'
+            // server: './'
+            server: {
+                baseDir :'./',
+                middleware: [
+                       modRewrite(['!\.html|\.js|\.jpg|\.mp4|\.mp3|\.gif|\.svg\|.css|\.png$ /index.html [L]'])
+                ]
+            }
         }
     }
 

@@ -6,14 +6,14 @@
 
 
   function SlickController($rootScope, $window, $location, $scope, $timeout, $compile) {
-    console.log('SlickController');
+    // console.log('SlickController');
     
-
+   
     function build(){
       // alert('slick build');
       $timeout(function() {
           // alert('slick build timeout');
-          console.log('SlickController');
+          // console.log('SlickController');
           $rootScope.viewLoaded = true;
           $rootScope.search = '';
 

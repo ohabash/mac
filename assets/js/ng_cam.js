@@ -6,7 +6,7 @@
 
   // ListenContrller
   app.controller('cam', function ($scope, $rootScope, $location) {
-    console.log('cam');
+    // console.log('cam');
 
     $scope.desktop_arr = [];
 

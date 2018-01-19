@@ -11,7 +11,7 @@
 
     .message{
         // max-width: 98%;
-        @include ani(0.3s, fadeInUp, 0.3s);
+        // @include ani(0.3s, fadeInUp, 0.3s);
         font-size: 0.8em;
         &.left{
             padding-right: 4em;

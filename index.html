@@ -69,7 +69,8 @@
 	        storageBucket: "demoapp-c83c3.appspot.com",
 	        messagingSenderId: "428752706746"
 	    };
-	    firebase.initializeApp(config);
+	    // firebase.initializeApp(config);
+	    if (!firebase.apps.length) {firebase.initializeApp(config); }
     </script>
     <!-- angularjs -->
     <script src="assets/js/angular.min.js"></script>
@@ -78,13 +79,16 @@
     <script src="bower_components/angular-slick-carousel/dist/angular-slick.min.js"></script>
     <script src="bower_components/angular-moment-filter/index.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-animate.js"></script>
-    <script src="assets/js/ng-app.js"></script>
-    <script src="assets/js/ng-controller.js"></script>
-    <script src="assets/js/ng-talk.js"></script>
-    <script src="assets/js/ng_cam.js"></script>
-    <script src="assets/js/ng_safari.js"></script>
-    <script src="assets/js/ng_carousel.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-animate.js"></script> -->
+    	<!-- controllers -->
+	    <script src="assets/js/ng-app.js"></script>
+	    <script src="assets/js/ng-desktop.js"></script>
+	    <script src="assets/js/ng-auth.js"></script>
+	    <script src="assets/js/ng-controller.js"></script>
+	    <script src="assets/js/ng-talk.js"></script>
+	    <script src="assets/js/ng_cam.js"></script>
+	    <script src="assets/js/ng_safari.js"></script>
+	    <script src="assets/js/ng_carousel.js"></script>
     <script src="assets/js/alerts.js"></script>
     <script src="assets/js/context.js"></script>
     <script src="assets/js/main.js"></script>

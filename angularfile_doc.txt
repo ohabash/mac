@@ -1,0 +1,6 @@
+https://www.firebase.com/docs/web/libraries/angular/guide/user-auth.html#section-logging-users-in
+
+https://github.com/firebase/angularfire/blob/master/docs/guide/user-auth.md
+
+#Gold#
+https://github.com/firebase/angularfire/blob/master/docs/reference.md#waitforsignin

@@ -9684,33 +9684,35 @@ input[type=text], textarea {
 
 /*========= lockScreen =========*/
 /*========= deskcons =========*/
-#deskcons .deskcon {
-  text-align: center;
-  color: #fff;
-  display: table;
-  max-width: 5em;
-  margin-top: 1em; }
-  #deskcons .deskcon:first-child {
-    margin-top: 2em; }
-  #deskcons .deskcon:active img {
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.5); }
-  #deskcons .deskcon:active p {
-    background: rgba(255, 255, 255, 0.5);
-    color: #000;
-    text-shadow: 0 0 0; }
-  #deskcons .deskcon img {
-    max-width: 100%;
-    padding: 0.2em; }
-  #deskcons .deskcon p {
+#deskcons {
+  padding-left: 1em; }
+  #deskcons .deskcon {
+    text-align: center;
     color: #fff;
-    font-weight: 600;
-    font-size: 11px;
-    font-weight: bold;
-    line-height: 13px;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.9);
-    /* width: 87px; */
-    /* white-space: nowrap; */ }
+    display: table;
+    max-width: 5em;
+    margin-top: 1em; }
+    #deskcons .deskcon:first-child {
+      margin-top: 2em; }
+    #deskcons .deskcon:active img {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.5); }
+    #deskcons .deskcon:active p {
+      background: rgba(255, 255, 255, 0.5);
+      color: #000;
+      text-shadow: 0 0 0; }
+    #deskcons .deskcon img {
+      max-width: 100%;
+      padding: 0.2em; }
+    #deskcons .deskcon p {
+      color: #fff;
+      font-weight: 600;
+      font-size: 11px;
+      font-weight: bold;
+      line-height: 13px;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.9);
+      /* width: 87px; */
+      /* white-space: nowrap; */ }
 
 /*========= // deskcons =========*/
 /*========= OSX Like Window =========*/
@@ -17022,16 +17024,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     border-bottom: 1px solid #efefef;
     background: #efefef; }
   #talk .message {
-    -webkit-animation-duration: 0.3s;
-    animation-duration: 0.3s;
-    -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
-    -webkit-animation-name: fadeInUp;
-    animation-name: fadeInUp;
-    animation-delay: 0.3s;
-    -webkit-animation-delay: 0.3s;
-    -moz-animation-delay: 0.3s;
-    -o-animation-delay: 0.3s;
     font-size: 0.8em; }
     #talk .message.left {
       padding-right: 4em; }

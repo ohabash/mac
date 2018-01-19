@@ -13,7 +13,7 @@
 		<!-- item -->
 		<div class="column1 {{item.fields.class}} is-2 skill-item vc pr {{item.fields.name}}" name='{{item.fields.name}}' ng-repeat="item in $contentfulEntries.items | filter:search:strict">
 			<a href="{{item.fields.url}}" target="_blank" class="skill-wrap centerer db">
-				<img src="{{ item.fields.icon.fields.file.url }}" alt="">
+				<img src="https:{{ item.fields.icon.fields.file.url }}" alt="">
 				<p class="text-center">{{item.fields.name}}</p>
 			</a>
 		</div>

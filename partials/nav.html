@@ -5,7 +5,7 @@
 
 
 <!-- Head NAV -->
-<header id="topMenu" class="vis">
+<header id="topMenu" class="vis" ng-controller="nav">
   <nav id="menu">
       <ul>
         <li class="apple">
@@ -45,11 +45,13 @@
             <li class="divider"></li>
             <li>Force Quit...</li>
             <li class="divider"></li>
-            <li class="logOut" ng-click="go('/')">Sleep</li>
-            <li class="logOut" ng-click="go('/')">Restart...</li>
-            <li class="logOut" ng-click="go('/')">Shut Down...</li>
+            <li ng-click="logout();" >Sleep</li>
+            <li ng-click="logout();" >Restart...</li>
+            <li ng-click="logout();" >Shut Down...</li>
             <li class="divider"></li>
-            <li class="logOut" ng-click="go('/')">Log Out...</li>
+            <li ng-click="logout();" >Log Out...</li>
+            <li class="divider"></li>
+            <li ng-click="deleteUser();" class="danger" >Delete Account</li>
             </ul>
         </li>
         <li class="here">
@@ -235,7 +237,7 @@
           <p style="padding-top: 2px;" class="pull-left clock"></p>
         </li>
         <li class="username">
-          <a class="un" href="javascript:void(0)">{{username}}</a>
+          <a class="un" href="javascript:void(0)">{{u.displayName}}</a>
         </li>
     </ul>
     </nav>

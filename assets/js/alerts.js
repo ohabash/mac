@@ -32,11 +32,12 @@ function fireAlerts(alerts) {
         // debug 
         // console.log("notices: "+self);
         $(".actions div").click( function(){
-          $(this).closest('.n-item').removeClass('slideInRight').addClass('slideOutRight').delay(400).queue(function(this1){
-            this.remove();
-          });
-        })
-        // setTimeout(removeAlert, 5500, $e);
+          removeAlert($(this).closest('.n-item'))
+        });
+
+        // setTimeout( function(){
+        //   $e.remove();
+        // }, 5500);
         // Remove displayed from queue
         queue.shift();
         // End of alerts array
@@ -58,10 +59,13 @@ function fireAlerts(alerts) {
 }
 
 // Hide
-function removeAlert($e) {
+function removeAlert(e) {
+  e.removeClass('slideInRight').addClass('slideOutRight').delay(400).queue(function(this1){
+    this.remove();
+  });
   // $e.addClass('fadeOut');
   // setTimeout(function() {
-    $e.html("");
+    // $e.html("");
   // }, 100);
 }
 
