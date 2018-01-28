@@ -76,11 +76,11 @@ app.controller('auth', function($scope, $timeout, Auth, FB, $firebaseAuth, $loca
 
 
     //signIn
-    $scope.signIn = function() {
+    $scope.signIn = function(e,p) {
       // login with Facebook
       $scope.firebaseUser = null;
       $scope.error = null;
-      Auth.$signInWithEmailAndPassword($scope.email, $scope.password).then(function(firebaseUser) {
+      Auth.$signInWithEmailAndPassword(e, p).then(function(firebaseUser) {
           $scope.firebaseUser = firebaseUser;
           $scope.uid = firebaseUser.uid;
           // addAlert("star", "Welcome", firebaseUser);
@@ -92,6 +92,7 @@ app.controller('auth', function($scope, $timeout, Auth, FB, $firebaseAuth, $loca
           // console.error(error);
         });
     };
+
 
 
     // logOut

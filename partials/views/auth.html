@@ -14,12 +14,13 @@
 			</div>
 			<!-- <h1 style="color:white;"><a href="/desktop">Desktop</a></h1> -->
 
-			<form id="login" class="active"  ng-submit="signIn()">
+			<form id="login" class="active"  ng-submit="signIn(email,password)">
 				<input required id="email" type="text" ng-model="email" placeholder="Enter Your email"><br>
 				<input required id="password" type="password" ng-model="password" placeholder="Password"><br>
 				<a href="/access" class="hide hideit">ACCESS</a>
 				<div class="submit-it"><i class="fa fa-arrow-circle-right" aria-hidden="true"></i></div>
 				<input required id="submit" type="submit" ng-model="submit" value="Login"><br>
+				<a class="mono" ng-click="signIn('johndoe@gmail.com','skyline');">Guest Login</a>
 			</form>
 
 
